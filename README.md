@@ -1,6 +1,6 @@
 # vim-tagbar-ctags-elm
 
-Support for [Elm](http://elm-lang.org/) in [Vim Tagbar](https://majutsushi.github.io/tagbar/) with [Universal Ctags](https://ctags.io/). This is a work in progress; when it's a bit more mature, and Universal Ctags a bit more common it will probably end up on the [Tagbar Wiki](https://github.com/majutsushi/tagbar/wiki), a [Ctags optlib](http://docs.ctags.io/en/latest/optlib.html) and a/or pull request to [elm-vim](https://github.com/ElmCast/elm-vim).
+Support for [Elm](http://elm-lang.org/) in [Vim Tagbar](https://majutsushi.github.io/tagbar/) with [Universal Ctags](https://ctags.io/) (doesn't work with Exuberant Ctags or any earlier stuff)
 
 ![elm-tagbar-ctags](img/elm-tagbar-ctags.png)		
 
@@ -20,10 +20,14 @@ Support for [Elm](http://elm-lang.org/) in [Vim Tagbar](https://majutsushi.githu
 
   - [x] ports 
 
-  - [ ] imports
+  - [x] imports
 
 - Vim Tagbar extension for these tag kinds.
 
+
+## Install
+
+It's a Pathogen-friendly Vim plugin. Install it with a package manager. 
 
 ## Bugs and limitations
 
@@ -32,10 +36,24 @@ Support for [Elm](http://elm-lang.org/) in [Vim Tagbar](https://majutsushi.githu
 * Doesn't distinguish functions by airity. 
 
 * can't  (yet) parse constructors in argument lists, hence this doesn't show up as a function:
-      renderResult ( n, r ) =
-  ​
+      renderResult ( n, r ) = ...
 
-## Similar projects
+* We don't set the modules as a scope, becase it's _hard_ to parse significant whitespace with regular expressions. We don't know when functions end (to pop the scope) so instead we _set_ the scope at each new top level function. If the module were a containing scope, the first top level function would clear it out.
 
-- [ctags-elm](https://github.com/kbsymanz/ctags-elm) got me started (thanks). Works with Exuberant Ctags, doesn't support scoped tags.
-- [elm-vim](https://github.com/ElmCast/elm-vim) has tagbar support for Elm
+## Relationship to other projects
+
+This is an experimental project; when it's a bit more mature, and Universal Ctags a bit more common it will probably end up as one or more of the following: 
+
+* an entry on the [Tagbar Wiki](https://github.com/majutsushi/tagbar/wiki)
+
+* a Universal Ctags [optlib](http://docs.ctags.io/en/latest/optlib.html) 
+
+* merged into [ctags-elm](https://github.com/kbsymanz/ctags-elm)
+
+  Ctags-elm got me started (thanks Kurt!). It works with Exuberant Ctags, but doesn't support scoped tags.
+
+- a pull request to [elm-vim](https://github.com/ElmCast/elm-vim) 
+
+  Elm-vim already provides tagbar support for ctags-elm. In order for this project to live nicely alongside that we overwrite `g:tagbar_type_elm`. (There might be a more polite way of going about this?)
+
+Thanks to the excellent [regular expressions 101](https://regex101.com/) for helping me figure out how to match and capture what I needed. And to the excellent work of Universal Ctags.

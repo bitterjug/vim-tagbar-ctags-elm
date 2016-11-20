@@ -20,6 +20,7 @@ function! s:SetTagbar()
                 \ '--options=elm'
                 \ ],
             \ 'kinds'     : [
+                \ 'i:import:1:0',
                 \ 't:type:0:0',
                 \ 'a:type alias:0:0',
                 \ 'p:port:0:0',
