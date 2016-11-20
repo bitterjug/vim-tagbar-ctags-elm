@@ -18,17 +18,24 @@ Support for [Elm](http://elm-lang.org/) in [Vim Tagbar](https://majutsushi.githu
 
         **Note**: Uses the [scope tracking](http://docs.ctags.io/en/latest/optlib.html#scope-tracking-in-a-regex-parser) features of Universal Ctags, so won't work with Exuberant Ctags. IF you want to use Exuberant Ctags, you need [ctags-elm](https://github.com/kbsymanz/ctags-elm).
 
-  - [ ] ports 
+  - [x] ports 
 
   - [ ] imports
 
 - Vim Tagbar extension for these tag kinds.
 
 
-## Known bugs
+## Bugs and limitations
 
 * Only top level function definitions (with no white space before the function name) define scopes for nesting. E.g. in the screen shot above the `_` binding is defined in a let expression in one of the cases further down in the `updateField` function.
+
 * Doesn't distinguish functions by airity. 
+
+* Ctags options defined for *preload* not as *optlib*. I think `elm.conf` should be in an `optlib` dir, and the tagbar conf should define `ctagsargs = '--options=elm'` but I haven't been able to get that to work yet.
+
+* can't  (yet) parse constructors in argument lists, hence this doesn't show up as a function:
+      renderResult ( n, r ) =
+  ​
 
 ## Similar projects
 
