@@ -31,8 +31,6 @@ Support for [Elm](http://elm-lang.org/) in [Vim Tagbar](https://majutsushi.githu
 
 * Doesn't distinguish functions by airity. 
 
-* Ctags options defined for *preload* not as *optlib*. I think `elm.conf` should be in an `optlib` dir, and the tagbar conf should define `ctagsargs = '--options=elm'` but I haven't been able to get that to work yet.
-
 * can't  (yet) parse constructors in argument lists, hence this doesn't show up as a function:
       renderResult ( n, r ) =
   ​
