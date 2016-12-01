@@ -20,6 +20,7 @@ function! s:SetTagbar()
                 \ '--options=elm'
                 \ ],
             \ 'kinds'     : [
+                \ 'm:module:0:0',
                 \ 'i:import:1:0',
                 \ 't:type:0:0',
                 \ 'a:type alias:0:0',
@@ -28,7 +29,8 @@ function! s:SetTagbar()
                 \ ],
             \ 'sro'      : ':',
             \ 'kind2scope' : {
-                \ 'f' : 'function'
+                \ 'f' : 'function',
+                \ 'm' : 'module'
             \ }
         \ }
 "    endif
