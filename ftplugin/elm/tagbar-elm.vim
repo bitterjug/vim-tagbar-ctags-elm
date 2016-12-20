@@ -22,15 +22,17 @@ function! s:SetTagbar()
             \ 'kinds'     : [
                 \ 'm:module:0:0',
                 \ 'i:import:1:0',
-                \ 't:type:0:0',
+                \ 't:type:1:0',
                 \ 'a:type alias:0:0',
+                \ 'c:type constructor:0:0',
                 \ 'p:port:0:0',
                 \ 'f:function:1:0'
                 \ ],
             \ 'sro'      : ':',
             \ 'kind2scope' : {
                 \ 'f' : 'function',
-                \ 'm' : 'module'
+                \ 'm' : 'module',
+                \ 't' : 'type'
             \ }
         \ }
 "    endif
