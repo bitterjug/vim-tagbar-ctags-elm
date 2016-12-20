@@ -35,7 +35,7 @@ It's a Pathogen-friendly Vim plugin. Install it with a package manager.
 
 * Only top level function definitions (with no white space before the function name) define scopes for nesting. E.g. in the screen shot above the `_` binding is defined in a let expression in one of the cases further down in the `updateField` function.
 * Doesn't respect block comments (u-ctags doesn't currently support them with regex parsers)
-* The regexps asumes your source is laid out according to [elm-format](https://github.com/avh4/elm-format).
+* The regexps assumes your source is laid out according to [elm-format](https://github.com/avh4/elm-format).
 * Does not set the module as a scope, becase it's _hard_ to parse significant whitespace with regular expressions. We don't know when functions end (to pop the scope) so instead we _set_ the scope at the start of each new top-level function. If the module were a containing scope, the first top level function would clear it out.
 * Doesn't distinguish functions by airity. We [talked about this](https://github.com/kbsymanz/ctags-elm/issues/4); it doesn't seem like a good idea.
 
